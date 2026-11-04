@@ -1,0 +1,19 @@
+<template>
+    <div class="wrapper">
+        <label for="field" class="label">{label}</label>
+        <textarea
+            id="field"
+            class="field"
+            aria-describedby="count"
+            aria-invalid={isOver}
+            onkeyup={handleInput}
+            oninput={handleInput}
+        ></textarea>
+        <p id="count" class={countClass}>
+            <span if:true={isOver} aria-hidden="true">&#9888; </span>
+            <span class="count-text">{length} / {maxLength}</span>
+            <span if:true={isOver}> &mdash; over limit</span>
+        </p>
+        <p class="assistive" role="status" aria-live="polite">{announcement}</p>
+    </div>
+</template>
